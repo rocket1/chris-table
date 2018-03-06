@@ -1,11 +1,19 @@
 table.chris-table {
-  width: 100%;
-  background-color: #CCCCCC;
-  border-collapse: collapse;
   font-family: arial, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
 }
 table.chris-table * {
   box-sizing: border-box;
+  overflow: hidden;
+}
+table.chris-table .hide-lg {
+  display: none !important;
+}
+@media (max-width: 1000px), (max-width: 680px) {
+  table.chris-table .hide-lg {
+    display: block !important;
+  }
 }
 @media (max-width: 1000px) {
   table.chris-table thead {
@@ -14,25 +22,32 @@ table.chris-table * {
 }
 table.chris-table thead tr {
   background-color: #815789;
+  border: 2px solid #815789;
+  border-bottom: 0;
 }
 table.chris-table thead tr th {
+  white-space: nowrap;
+  font-size: 13px;
   line-height: 1.7rem;
   font-weight: normal;
   color: white;
+}
+table.chris-table tbody tr {
+  margin-bottom: 8px;
+  border: 2px solid #CCCCCC;
+  border-radius: 8px;
+}
+@media (min-width: 1000px) {
+  table.chris-table tbody tr:first-child {
+    border-top: 0;
+  }
 }
 table.chris-table tbody tr .resp {
   width: 100% !important;
   display: flex;
   flex-wrap: wrap;
 }
-@media (max-width: 1000px) {
-  table.chris-table tbody tr {
-    width: 100% !important;
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-@media (max-width: 680px) {
+@media (max-width: 1000px), (max-width: 680px) {
   table.chris-table tbody tr {
     width: 100% !important;
     display: flex;
@@ -44,17 +59,25 @@ table.chris-table tbody tr td {
   background-color: white;
   text-align: center;
   vertical-align: middle;
+  padding: 16px;
 }
 @media (max-width: 1000px) {
   table.chris-table tbody tr td {
-    width: 33%;
+    height: auto;
+    width: 33.33%;
   }
+  table.chris-table tbody tr td:first-child,
   table.chris-table tbody tr td:last-child {
     width: 100%;
+  }
+  table.chris-table tbody tr td:nth-last-child(2),
+  table.chris-table tbody tr td:nth-last-child(3) {
+    width: 50%;
   }
 }
 @media (max-width: 680px) {
   table.chris-table tbody tr td {
+    height: auto;
     width: 50%;
   }
   table.chris-table tbody tr td:first-child,
@@ -66,9 +89,14 @@ table.chris-table tbody tr td {
 table.chris-table tbody tr td .td-div {
   height: 100%;
   display: flex;
+  flex-direction: column;
   flex: 1;
   justify-content: center;
   align-items: center;
+}
+table.chris-table tbody tr td .td-div .td-title {
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 table.chris-table tbody tr td .td-div .text1 {
   font-size: 26px;
@@ -79,6 +107,7 @@ table.chris-table tbody tr td .td-div .text2 {
   font-size: 12px;
 }
 table.chris-table tbody tr td .td-div a {
+  white-space: nowrap;
   color: #eb008b;
   font-size: 13px;
   font-weight: 700;
@@ -89,18 +118,31 @@ table.chris-table tbody tr td .td-div > div {
   flex-direction: column;
   justify-content: space-between;
 }
+@media (max-width: 1000px), (max-width: 680px) {
+  table.chris-table tbody tr td .td-div > div {
+    min-height: auto;
+  }
+}
 table.chris-table tbody tr td .td-div > div.portal-icons {
   min-height: auto;
   flex-direction: row;
 }
 table.chris-table tbody tr td .td-div > div.portal-icons img:not(:last-child) {
-  margin-right: 2px;
+  margin-right: 4px;
 }
 @media (max-width: 1000px) {
+  table.chris-table tbody tr td:last-child {
+    height: auto;
+  }
   table.chris-table tbody tr td:last-child .td-div > div {
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     min-height: auto;
+  }
+  table.chris-table tbody tr td:last-child .td-div .btn {
+    margin-bottom: 0;
   }
 }
 @media (max-width: 680px) {
@@ -111,17 +153,24 @@ table.chris-table tbody tr td .td-div > div.portal-icons img:not(:last-child) {
   }
   table.chris-table tbody tr td:last-child .td-div .btn {
     width: 100%;
+    margin-bottom: 8px;
   }
 }
 table.chris-table .btn {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 187px;
   height: 36px;
+  font-size: 13px;
   color: white;
   background-color: #eb008b;
+  padding-left: 24px;
 }
 table.chris-table .btn:not(:last-child) {
   margin-bottom: 8px;
+}
+table.chris-table .btn i {
+  font-size: 18px;
+  margin-right: 16px;
 }

@@ -1,31 +1,51 @@
+@bp0: ~"(min-width: 1000px)";
 @bp1: ~"(max-width: 1000px)";
 @bp2: ~"(max-width: 680px)";
 @lineHeight: 1.7rem;
 @linkColor: #eb008b;
+@tableBgColor: #CCCCCC;
+@tableHdrBgColor: #815789;
+@tableHdrTextColor: white;
+@border: 2px solid @tableBgColor;
+@borderHdr: 2px solid @tableHdrBgColor;
 
 table.chris-table {
 
+  font-family: arial, sans-serif;
+
   * {
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   width: 100%;
-  background-color: #CCCCCC;
   border-collapse: collapse;
-  font-family: arial, sans-serif;
+
+  // TODO: Remove !important.
+  .hide-lg {
+    display: none !important;
+    @media @bp1, @bp2 {
+      display: block !important;
+    }
+  }
 
   thead {
 
+    // Hide the header when screen is narrow.
     @media @bp1 {
       display: none;
     }
 
     tr {
-      background-color: #815789;
+      background-color: @tableHdrBgColor;
+      border: @borderHdr;
+      border-bottom: 0;
       th {
+        white-space: nowrap;
+        font-size: 13px;
         line-height: @lineHeight;
         font-weight: normal;
-        color: white;
+        color: @tableHdrTextColor;
       }
     }
   }
@@ -34,17 +54,23 @@ table.chris-table {
 
     tr {
 
+      margin-bottom: 8px;
+      border: @border;
+      border-radius: 8px;
+
+      &:first-child {
+        @media @bp0 {
+          border-top: 0;
+        }
+      }
+
       .resp {
         width: 100% !important;
         display: flex;
         flex-wrap: wrap;
       }
 
-      @media @bp1 {
-        .resp;
-      }
-
-      @media @bp2 {
+      @media @bp1, @bp2 {
         .resp;
       }
 
@@ -54,15 +80,22 @@ table.chris-table {
         background-color: white;
         text-align: center;
         vertical-align: middle;
+        padding: 16px;
 
         @media @bp1 {
-          width: 33%;
-          &:last-child {
+          height: auto;
+          width: 33.33%;
+          &:first-child, &:last-child {
             width: 100%;
+          }
+
+          &:nth-last-child(2), &:nth-last-child(3) {
+            width: 50%;
           }
         }
 
         @media @bp2 {
+          height: auto;
           width: 50%;
           &:first-child, &:last-child, &:nth-last-child(2) {
             width: 100%;
@@ -73,9 +106,15 @@ table.chris-table {
 
           height: 100%;
           display: flex;
+          flex-direction: column;
           flex: 1;
           justify-content: center;
           align-items: center;
+
+          .td-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+          }
 
           .text1 {
             font-size: 26px;
@@ -88,6 +127,7 @@ table.chris-table {
           }
 
           a {
+            white-space: nowrap;
             color: @linkColor;
             font-size: 13px;
             font-weight: 700;
@@ -96,6 +136,11 @@ table.chris-table {
           > div {
 
             min-height: 75px;
+
+            @media @bp1, @bp2 {
+              min-height: auto;
+            }
+
             display: inline-flex;
             flex-direction: column;
             justify-content: space-between;
@@ -106,20 +151,27 @@ table.chris-table {
               flex-direction: row;
 
               img:not(:last-child) {
-                margin-right: 2px;
+                margin-right: 4px;
               }
             }
           }
         }
 
+        // The buttons get styled differently for all the different breakpoints.
         &:last-child {
 
           @media @bp1 {
+            height: auto;
             .td-div {
               > div {
                 flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
                 width: 100%;
                 min-height: auto;
+              }
+              .btn {
+                margin-bottom: 0;
               }
             }
           }
@@ -132,9 +184,9 @@ table.chris-table {
                 width: 100%;
                 min-height: auto;
               }
-
               .btn {
                 width: 100%;
+                margin-bottom: 8px;
               }
             }
           }
@@ -146,15 +198,22 @@ table.chris-table {
   .btn {
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 187px;
     height: 36px;
+    font-size: 13px;
     color: white;
     background-color: @linkColor;
+    padding-left: 24px;
 
     &:not(:last-child) {
       margin-bottom: 8px;
+    }
+
+    i {
+      font-size: 18px;
+      margin-right: 16px;
     }
   }
 }
