@@ -165,7 +165,7 @@ table.chris-table tbody tr td .td-div > div .val-with-link {
 }
 table.chris-table .btn {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 187px;
   height: 36px;
@@ -173,7 +173,12 @@ table.chris-table .btn {
   letter-spacing: .05rem;
   color: white;
   background-color: #eb008b;
-  padding-left: 24px;
+}
+table.chris-table .btn > div {
+  width: 145px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 table.chris-table .btn:not(:last-child) {
   margin-bottom: 8px;
