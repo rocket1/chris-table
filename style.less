@@ -1,0 +1,160 @@
+@bp1: ~"(max-width: 1000px)";
+@bp2: ~"(max-width: 680px)";
+@lineHeight: 1.7rem;
+@linkColor: #eb008b;
+
+table.chris-table {
+
+  * {
+    box-sizing: border-box;
+  }
+
+  width: 100%;
+  background-color: #CCCCCC;
+  border-collapse: collapse;
+  font-family: arial, sans-serif;
+
+  thead {
+
+    @media @bp1 {
+      display: none;
+    }
+
+    tr {
+      background-color: #815789;
+      th {
+        line-height: @lineHeight;
+        font-weight: normal;
+        color: white;
+      }
+    }
+  }
+
+  tbody {
+
+    tr {
+
+      .resp {
+        width: 100% !important;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      @media @bp1 {
+        .resp;
+      }
+
+      @media @bp2 {
+        .resp;
+      }
+
+      td {
+
+        height: 185px;
+        background-color: white;
+        text-align: center;
+        vertical-align: middle;
+
+        @media @bp1 {
+          width: 33%;
+          &:last-child {
+            width: 100%;
+          }
+        }
+
+        @media @bp2 {
+          width: 50%;
+          &:first-child, &:last-child, &:nth-last-child(2) {
+            width: 100%;
+          }
+        }
+
+        .td-div {
+
+          height: 100%;
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+
+          .text1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #4F145A;
+          }
+
+          .text2 {
+            font-size: 12px;
+          }
+
+          a {
+            color: @linkColor;
+            font-size: 13px;
+            font-weight: 700;
+          }
+
+          > div {
+
+            min-height: 75px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            &.portal-icons {
+
+              min-height: auto;
+              flex-direction: row;
+
+              img:not(:last-child) {
+                margin-right: 2px;
+              }
+            }
+          }
+        }
+
+        &:last-child {
+
+          @media @bp1 {
+            .td-div {
+              > div {
+                flex-direction: row;
+                width: 100%;
+                min-height: auto;
+              }
+            }
+          }
+
+          @media @bp2 {
+
+            .td-div {
+              > div {
+                flex-direction: column;
+                width: 100%;
+                min-height: auto;
+              }
+
+              .btn {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btn {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 187px;
+    height: 36px;
+    color: white;
+    background-color: @linkColor;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
