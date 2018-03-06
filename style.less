@@ -8,6 +8,7 @@
 @tableHdrTextColor: white;
 @border: 2px solid @tableBgColor;
 @borderHdr: 2px solid @tableHdrBgColor;
+@baseFontSize: .8rem;
 
 table.chris-table {
 
@@ -42,7 +43,7 @@ table.chris-table {
       border-bottom: 0;
       th {
         white-space: nowrap;
-        font-size: 13px;
+        font-size: @baseFontSize;
         line-height: @lineHeight;
         font-weight: normal;
         color: @tableHdrTextColor;
@@ -106,8 +107,8 @@ table.chris-table {
 
           height: 100%;
           display: flex;
-          flex-direction: column;
           flex: 1;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
 
@@ -129,13 +130,11 @@ table.chris-table {
           a {
             white-space: nowrap;
             color: @linkColor;
-            font-size: 13px;
+            font-size: @baseFontSize;
             font-weight: 700;
           }
 
           > div {
-
-            min-height: 75px;
 
             @media @bp1, @bp2 {
               min-height: auto;
@@ -143,7 +142,7 @@ table.chris-table {
 
             display: inline-flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
 
             &.portal-icons {
 
@@ -153,6 +152,13 @@ table.chris-table {
               img:not(:last-child) {
                 margin-right: 4px;
               }
+            }
+
+            .val-with-link {
+              min-height: 70px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
             }
           }
         }
@@ -186,7 +192,9 @@ table.chris-table {
               }
               .btn {
                 width: 100%;
-                margin-bottom: 8px;
+                &:not(:last-child) {
+                  margin-bottom: 8px;
+                }
               }
             }
           }
@@ -202,7 +210,8 @@ table.chris-table {
     align-items: center;
     width: 187px;
     height: 36px;
-    font-size: 13px;
+    font-size: @baseFontSize;
+    letter-spacing: .05rem;
     color: white;
     background-color: @linkColor;
     padding-left: 24px;
@@ -213,7 +222,8 @@ table.chris-table {
 
     i {
       font-size: 18px;
-      margin-right: 16px;
+      margin-right: 18px;
+      width: 18px;
     }
   }
 }
