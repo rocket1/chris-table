@@ -1,6 +1,6 @@
 ** DO NOT EDIT THE FILE style.css DIRECTLY. **
 
-To make changes to the CSS you MUST compile the file:
+To make changes to the CSS you MUST edit and compile the file:
 
 style.less
 
