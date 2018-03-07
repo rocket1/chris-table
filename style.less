@@ -1,15 +1,16 @@
-@bp0: ~"(min-width: 1000px)";
-@bp1: ~"(max-width: 1000px)";
-@bp2: ~"(max-width: 680px)";
-
 @lineHeight: 1.7rem;
 @linkColor: #eb008b;
 @tableBgColor: #CCCCCC;
 @tableHdrBgColor: #815789;
+@textColor: #4F145A;
 @tableHdrTextColor: white;
 @border: 2px solid @tableBgColor;
 @borderHdr: 2px solid @tableHdrBgColor;
 @baseFontSize: .8rem;
+
+@bp0: ~"(min-width: 1000px)";
+@bp1: ~"(max-width: 1000px)";
+@bp2: ~"(max-width: 680px)";
 
 table.chris-table {
 
@@ -126,7 +127,7 @@ table.chris-table {
           .text1 {
             font-size: 26px;
             font-weight: 700;
-            color: #4F145A;
+            color: @textColor;
           }
 
           .text2 {
