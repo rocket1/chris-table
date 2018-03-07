@@ -7,6 +7,7 @@
 @border: 2px solid @tableBgColor;
 @borderHdr: 2px solid @tableHdrBgColor;
 @baseFontSize: .8rem;
+@boldWeight: 700;
 
 @bp0: ~"(min-width: 1000px)";
 @bp1: ~"(max-width: 1000px)";
@@ -23,14 +24,6 @@ table.chris-table {
 
   width: 100%;
   border-collapse: collapse;
-
-  // TODO: Remove !important.
-  .hide-lg {
-    display: none !important;
-    @media @bp1, @bp2 {
-      display: block !important;
-    }
-  }
 
   thead {
 
@@ -67,14 +60,10 @@ table.chris-table {
         }
       }
 
-      .resp {
+      @media @bp1, @bp2 {
         width: 100% !important;
         display: flex;
         flex-wrap: wrap;
-      }
-
-      @media @bp1, @bp2 {
-        .resp;
       }
 
       td {
@@ -120,25 +109,18 @@ table.chris-table {
           align-items: center;
 
           .td-title {
-            font-weight: 700;
+            font-weight: @boldWeight;
             margin-bottom: 8px;
           }
 
           .text1 {
             font-size: 26px;
-            font-weight: 700;
+            font-weight: @boldWeight;
             color: @textColor;
           }
 
           .text2 {
             font-size: 12px;
-          }
-
-          a {
-            white-space: nowrap;
-            color: @linkColor;
-            font-size: @baseFontSize;
-            font-weight: 700;
           }
 
           > div {
@@ -166,6 +148,13 @@ table.chris-table {
               display: flex;
               flex-direction: column;
               justify-content: space-between;
+
+              a {
+                white-space: nowrap;
+                color: @linkColor;
+                font-size: @baseFontSize;
+                font-weight: @boldWeight;
+              }
             }
           }
         }
@@ -210,7 +199,7 @@ table.chris-table {
     }
   }
 
-  .btn {
+  a.btn {
 
     display: flex;
     justify-content: center;
@@ -218,9 +207,11 @@ table.chris-table {
     width: 187px;
     height: 36px;
     font-size: @baseFontSize;
+    font-weight: normal;
     letter-spacing: .05rem;
     color: white;
     background-color: @linkColor;
+    text-decoration: none;
 
     > div {
       width: 145px;
@@ -237,6 +228,13 @@ table.chris-table {
       font-size: 18px;
       margin-right: 18px;
       width: 20px;
+    }
+  }
+
+  .hide-lg {
+    display: none !important;
+    @media @bp1, @bp2 {
+      display: block !important;
     }
   }
 }

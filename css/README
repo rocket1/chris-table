@@ -1,0 +1,20 @@
+** DO NOT EDIT THE FILE style.css DIRECTLY. **
+
+To make changes to the CSS you MUST compile the file:
+
+style.less
+
+to
+
+style.css
+
+To do this you will need at bare minimum the lessc compiler found here: http://lesscss.org/
+
+To install:
+
+%> npm install -g less
+
+To compile the CSS:
+
+%> lessc style.less style.css
+
