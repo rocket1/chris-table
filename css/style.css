@@ -112,7 +112,7 @@ table.chris-table tbody tr td .td-div > div.portal-icons {
   min-height: auto;
   flex-direction: row;
 }
-table.chris-table tbody tr td .td-div > div.portal-icons img:not(:last-child) {
+table.chris-table tbody tr td .td-div > div.portal-icons a:not(:last-child) {
   margin-right: 4px;
 }
 table.chris-table tbody tr td .td-div > div .val-with-link {
