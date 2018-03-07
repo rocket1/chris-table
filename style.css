@@ -94,6 +94,11 @@ table.chris-table tbody tr td .td-div {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 1000px) {
+  table.chris-table tbody tr td .td-div {
+    justify-content: flex-start;
+  }
+}
 table.chris-table tbody tr td .td-div .td-title {
   font-weight: 700;
   margin-bottom: 8px;

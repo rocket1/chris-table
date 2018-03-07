@@ -1,6 +1,7 @@
 @bp0: ~"(min-width: 1000px)";
 @bp1: ~"(max-width: 1000px)";
 @bp2: ~"(max-width: 680px)";
+
 @lineHeight: 1.7rem;
 @linkColor: #eb008b;
 @tableBgColor: #CCCCCC;
@@ -110,6 +111,11 @@ table.chris-table {
           flex: 1;
           flex-direction: column;
           justify-content: center;
+
+          @media @bp1 {
+            justify-content: flex-start;
+          }
+
           align-items: center;
 
           .td-title {
